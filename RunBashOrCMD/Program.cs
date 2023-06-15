@@ -10,11 +10,6 @@ class Program
         string bubba = WhatOS();
         Console.WriteLine("your operationg system is: " + bubba);
         Console.ReadKey();
-
-
-
-
-
     }
 
     public static string WhatOS()
@@ -23,7 +18,6 @@ class Program
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             return  OSPlatform.OSX.ToString();
-
         }
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -34,6 +28,11 @@ class Program
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             return OSPlatform.Windows.ToString();
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+        {
+            return OSPlatform.FreeBSD.ToString();
         }
 
         throw new Exception("Cannot determine operating system!");
