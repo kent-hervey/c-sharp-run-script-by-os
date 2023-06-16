@@ -2,6 +2,8 @@
 
 echo "here is a directory name:"
 
+echo "you are in the shell script"
+
 echo $dirname $0
 
 current_dir=$(dirname "$0")
