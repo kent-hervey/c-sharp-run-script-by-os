@@ -84,34 +84,4 @@ class Program
         throw new Exception("Cannot determine operating system!");
 
     }
-
-
-    static string ExecuteBashCommand()
-    {
-        // according to: https://stackoverflow.com/a/15262019/637142
-        // thans to this we will pass everything as one command
-        
-
-        var proc = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = "$(ProjectDir)/utilities/createVersionTxt.sh",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            }
-        };
-
-        proc.Start();
-        proc.WaitForExit();
-
-        return proc.StandardOutput.ReadToEnd();
-    }
-
-
-
-
-
-
 }
