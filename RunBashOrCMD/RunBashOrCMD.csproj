@@ -14,10 +14,4 @@
   <ItemGroup>
     <Folder Include="obj\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="utilities\project.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="utilities\project.config" />
-  </ItemGroup>
 </Project>
