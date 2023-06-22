@@ -19,7 +19,8 @@ git rev-parse HEAD >> "$f" 2>&1
 echo >> "$f"
 
 echo "build_date:" >> "$f"
-datetime=$(date +"%Y-%m-%d %H:%M:%S")
+#datetime=$(date +"%Y-%m-%d %H:%M:%S")
+datetime=$(date -u +"%Y%m%d%H%M%S-%z")
 echo "$datetime" >> "$f"
 echo >> "$f"
 
@@ -29,7 +30,7 @@ configurationVar=$(grep -E "ConfigurationName" ../../.vs/config/project.config |
 if [[ -n "$configurationVar" ]]; then
   echo "$configurationVar" >> "$f"
 else
-  echo "bubbacccc" >> "$f"
+  echo "Debug" >> "$f"
 fi
 
 exit 0
