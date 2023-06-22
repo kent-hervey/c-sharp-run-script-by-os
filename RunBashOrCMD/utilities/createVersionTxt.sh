@@ -26,26 +26,10 @@ echo >> "$f"
 echo "build_configuration:" >> "$f"
 
 configurationVar=$(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1)
-
-#echo "$configurationVar" >> "$f"
-#echo "was there" >> "$f"
-
-#echo $(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1) >> "$f"
-
-#echo "12yo" >> "$f"
-
-
 if [[ -n "$configurationVar" ]]; then
   echo "$configurationVar" >> "$f"
 else
   echo "bubbacccc" >> "$f"
 fi
-#echo "after here" >> "$f"
-
-
-#echo $(cat ../../.vs/config/project.config)
-
-#echo $(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1) 
-
 
 exit 0
