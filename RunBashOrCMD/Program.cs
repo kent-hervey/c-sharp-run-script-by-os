@@ -18,20 +18,14 @@ class Program
         if (foundOs.Contains("OSX"))
         {
             Console.WriteLine("you are on a Mac");
-            String version = runShellScript();
+            runShellScript();
         }
 
         Console.ReadKey();
     }
 
-    private static string runShellScript()
+    private static void runShellScript()
     {
-
-
-
-        //string execPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-
-        //string scriptPath = Path.Combine(execPath, "utilities", "createVersionTxt.sh");
 
         string scriptPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "createVersionTxt.sh");
 
@@ -57,55 +51,6 @@ class Program
 
         // Wait for the process to finish
         process.WaitForExit();
-
-
-
-
-
-
-        string versionTxtPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "Version.txt");
-
-
-        // Create a StreamWriter object
-        StreamWriter writer = new StreamWriter(versionTxtPath, true);
-
-        //string settingValue = ConfigurationManager.AppSettings["SettingName"];
-
-        // Create a configuration builder
-        var configBuilder = new ConfigurationBuilder();
-
-        // Set the expected location of the appsettings.json file
-        configBuilder.SetBasePath("/Users/khervey/VisualStudioProjects/RunBashOrCMD/RunBashOrCMD");
-
-        // Add the appsettings.json file to the configuration builder
-        configBuilder.AddJsonFile("appsettings.json");
-
-        // Build the configuration object
-        IConfiguration config = configBuilder.Build();
-
-        // Get the value of the "AppName" configuration setting
-        string appName = "here is the appname:  " + config["AppName"];
-
-        // Print the value of the "AppName" configuration setting
-        Console.WriteLine(appName);
-
-        writer.WriteLine(appName);
-
-
-
-
-        writer.Flush();
-
-        // Close the StreamWriter object
-        writer.Close();
-
-        // Get the output from the process
-        string output = process.StandardOutput.ReadToEnd();
-
-        // Print the output
-        Console.WriteLine(output);
-
-        return output;
     }
 
 
