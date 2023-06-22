@@ -12,7 +12,7 @@ cd "$current_dir"
 f=Version.txt
 touch "$f"
 
-echo "git_branch:" >> "$f"
+echo "git_branch:" > "$f"
 git branch --show-current >> "$f" 2>&1
 echo >> "$f"
 
@@ -26,6 +26,15 @@ echo "$datetime" >> "$f"
 echo >> "$f"
 
 echo "build_configuration:" >> "$f"
-echo "$1" >> "$f"
 
-exit 0
+
+echo "Debug" >> "$f"
+
+echo "cool.........."
+
+
+
+exit 0This is a new line
+This is a new line
+This is a new lineThis is a new lineThis is a new lineThis is a new line
+This is a new lineThis is a new line

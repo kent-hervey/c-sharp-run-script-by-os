@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System;
+using System.IO;
 
 namespace RunBashOrCMD;
 class Program
@@ -24,9 +25,11 @@ class Program
     private static string runShellScript()
     { 
 
-        string execPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //string execPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
     
-        string scriptPath = Path.Combine(execPath, "utilities", "createVersionTxt.sh");
+        //string scriptPath = Path.Combine(execPath, "utilities", "createVersionTxt.sh");
+
+        string scriptPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "createVersionTxt.sh");
 
         Console.WriteLine("here is the file path " + scriptPath);
 
@@ -50,6 +53,23 @@ class Program
 
         // Wait for the process to finish
         process.WaitForExit();
+
+        string versionTxtPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "createVersionTxt.sh");
+
+
+        // Create a StreamWriter object
+        StreamWriter writer = new StreamWriter(versionTxtPath, true);
+
+        // Append a line to the file
+
+        writer.Write("This is a new line");
+
+        writer.WriteLine("This is a new line");
+
+        writer.Flush();
+
+        // Close the StreamWriter object
+        writer.Close();
 
         // Get the output from the process
         string output = process.StandardOutput.ReadToEnd();
