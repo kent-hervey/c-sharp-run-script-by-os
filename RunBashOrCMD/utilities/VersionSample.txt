@@ -1,0 +1,14 @@
+git_branch: 
+develop
+
+git_hash: 
+97db59f19914e1b68726abccc4bea4e7314adfc8
+
+build_date: 
+20230621112150.158000-300 
+
+build_configuration: 
+Debug 
+
+
+###///Note this is a sample file provided by a Windows user
