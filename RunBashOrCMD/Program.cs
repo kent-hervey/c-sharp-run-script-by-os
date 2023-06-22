@@ -2,6 +2,8 @@
 using System.Runtime.InteropServices;
 using System;
 using System.IO;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace RunBashOrCMD;
 class Program
@@ -23,10 +25,12 @@ class Program
     }
 
     private static string runShellScript()
-    { 
+    {
+
+
 
         //string execPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-    
+
         //string scriptPath = Path.Combine(execPath, "utilities", "createVersionTxt.sh");
 
         string scriptPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "createVersionTxt.sh");
@@ -54,17 +58,41 @@ class Program
         // Wait for the process to finish
         process.WaitForExit();
 
-        string versionTxtPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "createVersionTxt.sh");
+
+
+
+
+
+        string versionTxtPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "RunBashOrCMD", "utilities", "Version.txt");
 
 
         // Create a StreamWriter object
         StreamWriter writer = new StreamWriter(versionTxtPath, true);
 
-        // Append a line to the file
+        //string settingValue = ConfigurationManager.AppSettings["SettingName"];
 
-        writer.Write("This is a new line");
+        // Create a configuration builder
+        var configBuilder = new ConfigurationBuilder();
 
-        writer.WriteLine("This is a new line");
+        // Set the expected location of the appsettings.json file
+        configBuilder.SetBasePath("/Users/khervey/VisualStudioProjects/RunBashOrCMD/RunBashOrCMD");
+
+        // Add the appsettings.json file to the configuration builder
+        configBuilder.AddJsonFile("appsettings.json");
+
+        // Build the configuration object
+        IConfiguration config = configBuilder.Build();
+
+        // Get the value of the "AppName" configuration setting
+        string appName = "here is the appname:  " + config["AppName"];
+
+        // Print the value of the "AppName" configuration setting
+        Console.WriteLine(appName);
+
+        writer.WriteLine(appName);
+
+
+
 
         writer.Flush();
 

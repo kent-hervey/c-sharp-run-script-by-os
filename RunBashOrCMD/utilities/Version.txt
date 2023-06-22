@@ -2,10 +2,11 @@ git_branch:
 master
 
 git_hash:
-e2f5e2cf3670c11ed0ced58237a9f3a890f9c613
+bddb6a292611d38e13bbd9ba20006733c3919723
 
 build_date:
-2023-06-22 12:08:42
+2023-06-22 15:45:34
 
 build_configuration:
-Debug
+DebugBob
+here is the appname:  MyApprtwertert  Damien is cool

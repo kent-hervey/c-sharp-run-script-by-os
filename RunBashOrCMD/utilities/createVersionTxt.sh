@@ -2,8 +2,6 @@
 
 echo "here is a directory name:"
 
-echo "you are in the shell script"
-
 echo $dirname $0
 
 current_dir=$(dirname "$0")
@@ -27,14 +25,27 @@ echo >> "$f"
 
 echo "build_configuration:" >> "$f"
 
+configurationVar=$(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1)
 
-echo "Debug" >> "$f"
+#echo "$configurationVar" >> "$f"
+#echo "was there" >> "$f"
 
-echo "cool.........."
+#echo $(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1) >> "$f"
+
+#echo "12yo" >> "$f"
 
 
+if [[ -n "$configurationVar" ]]; then
+  echo "$configurationVar" >> "$f"
+else
+  echo "bubbacccc" >> "$f"
+fi
+#echo "after here" >> "$f"
 
-exit 0This is a new line
-This is a new line
-This is a new lineThis is a new lineThis is a new lineThis is a new line
-This is a new lineThis is a new line
+
+#echo $(cat ../../.vs/config/project.config)
+
+#echo $(grep -E "ConfigurationName" ../../.vs/config/project.config | cut -d '>' -f 2 | cut -d '<' -f 1) 
+
+
+exit 0
