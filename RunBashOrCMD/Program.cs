@@ -22,8 +22,11 @@ class Program
     }
 
     private static string runShellScript()
-    {
-        string scriptPath = Path.Combine("/Users/khervey/VisualStudioProjects/RunBashOrCMD", "utilities", "createVersionTxt.sh");
+    { 
+
+        string execPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+    
+        string scriptPath = Path.Combine(execPath, "utilities", "createVersionTxt.sh");
 
         Console.WriteLine("here is the file path " + scriptPath);
 
@@ -82,6 +85,5 @@ class Program
         }
 
         throw new Exception("Cannot determine operating system!");
-
     }
 }
