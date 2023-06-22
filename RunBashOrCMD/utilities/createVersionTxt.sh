@@ -20,7 +20,11 @@ echo >> "$f"
 
 echo "build_date:" >> "$f"
 #datetime=$(date +"%Y-%m-%d %H:%M:%S")
-datetime=$(date -u +"%Y%m%d%H%M%S-%z")
+
+
+random_number=$(((RANDOM % 900000)+100000))
+
+datetime=$(date -u +"%Y%m%d%H%M%S.$random_number-%z")
 echo "$datetime" >> "$f"
 echo >> "$f"
 
@@ -32,5 +36,8 @@ if [[ -n "$configurationVar" ]]; then
 else
   echo "Debug" >> "$f"
 fi
+
+
+
 
 exit 0
