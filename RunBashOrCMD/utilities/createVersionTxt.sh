@@ -24,7 +24,7 @@ echo "build_date:" >> "$f"
 
 random_number=$(((RANDOM % 900000)+100000))
 
-datetime=$(date -u +"%Y%m%d%H%M%S.$random_number-%z")
+datetime=$(date -u +"%Y%m%d%H%M%S.$random_number%z")
 echo "$datetime" >> "$f"
 echo >> "$f"
 
